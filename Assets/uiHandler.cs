@@ -13,6 +13,7 @@ public class uiHandler : MonoBehaviour
     Text hiScore;
     Text hiScore2;
     Text score;
+    Text lives;
     bool death ;
 
     void Start()
@@ -20,20 +21,21 @@ public class uiHandler : MonoBehaviour
       hiScore = GameObject.Find("hiScore").GetComponent<Text>();
       hiScore2 = GameObject.Find("hiScore2").GetComponent<Text>();
       score = GameObject.Find("Score").GetComponent<Text>();
+      lives = GameObject.Find("Lives").GetComponent<Text>();
       pauseMenu = GameObject.Find("PauseMenu");
       deathMenu = GameObject.Find("DeathMenu");
       mainMenu = GameObject.Find("MainMenu");
       inGame = GameObject.Find("inGame");
       MainMenu();
       DontDestroyOnLoad(this.gameObject);
-      Debug.Log("Start");
     }
-    
+
     void Update()
     {
       hiScore.text = PlayerPrefs.GetInt("hiScore").ToString();
       hiScore2.text = PlayerPrefs.GetInt("hiScore").ToString();
       score.text = PlayerPrefs.GetInt("score").ToString();
+      lives.text = PlayerPrefs.GetInt("lives").ToString();
       if(PlayerPrefs.GetInt("death") == 1)
       {
         Death();
@@ -58,7 +60,6 @@ public class uiHandler : MonoBehaviour
       pauseMenu.SetActive(false);
       deathMenu.SetActive(false);
       mainMenu.SetActive(false);
-      Debug.Log("SetFalse");
       Time.timeScale = 1f;
     }
     public void Pause()

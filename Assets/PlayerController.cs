@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     {
       SwipeDetector.OnSwipe += SwipeDetector_OnSwipe;
     }
+    private void Start()
+    {
+      PlayerPrefs.SetInt("lives", 3);
+    }
 
     void FixedUpdate()
     {

@@ -27,9 +27,7 @@ public class ObjectPooler : MonoBehaviour
       if(getNextCar % 5 == 0)
       {
         int getRow = Random.Range(0,3);
-        Debug.Log(getRow);
         float positionOfNewCar = -3.24f + (getRow * 3.24f);
-        Debug.Log(positionOfNewCar);
         GetCar(new Vector3(positionOfNewCar , 0 , Player.position.z + 90));
         if(carPool.Peek().transform.position.z < Player.position.z - 10)
         {
